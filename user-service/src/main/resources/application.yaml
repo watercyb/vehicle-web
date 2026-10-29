@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+cognito:
+  client:
+    key: ${key}
+    secret: ${secret}
+    region: ${region}
+    poolId: ${poolId}
+    clientId: ${clientId}

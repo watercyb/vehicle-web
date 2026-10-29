@@ -1,0 +1,7 @@
+docker build -t 715221147571.dkr.ecr.us-west-2.amazonaws.com/vehicle:rental-service .
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 715221147571.dkr.ecr.us-west-2.amazonaws.com/vehicle
+docker push 715221147571.dkr.ecr.us-west-2.amazonaws.com/vehicle:rental-service
+
+docker run -p 8080:8080 -e url.rental=127.0.0.1:8080 -e url.user=127.0.0.1:8080 715221147571.dkr.ecr.us-west-2.amazonaws.com/vehicle:rental-service
+
+docker run -d -p 80:8080 715221147571.dkr.ecr.us-west-2.amazonaws.com/ec2:latest
